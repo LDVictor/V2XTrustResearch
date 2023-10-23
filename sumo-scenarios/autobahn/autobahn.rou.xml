@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2023-10-18 17:18:26 by Eclipse SUMO netedit Version 1.18.0
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- VTypes -->
+    <vType id="coach" maxSpeed="30.00" speedFactor="normc(1.00,0.05,0.20,2.00)" vClass="coach"/>
+    <vType id="normal_car" maxSpeed="40.00" speedFactor="normc(0.90,0.20,0.20,2.00)" vClass="passenger" sigma="0.5"/>
+    <vType id="sporty_car" maxSpeed="60.00" speedFactor="normc(1.30,0.10,0.20,2.00)" vClass="passenger" sigma="0.1"/>
+    <vType id="trailer" maxSpeed="30.00" speedFactor="normc(1.00,0.05,0.20,2.00)" vClass="trailer"/>
+    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <trip id="t_0" depart="0.00" from="entrada" to="entrada"/>
+    <flow id="coach" type="coach" begin="0.00" departLane="best" departSpeed="avg" from="entrada" to="saida" end="5000.00" number="300"/>
+    <flow id="normal" type="normal_car" begin="0.00" departLane="best" departSpeed="avg" from="entrada" to="saida" end="5000.00" number="5000"/>
+    <flow id="sporty" type="sporty_car" begin="0.00" departLane="best" departSpeed="avg" from="entrada" to="saida" end="5000.00" number="300"/>
+    <flow id="trailer" type="trailer" begin="0.00" departLane="best" departSpeed="avg" from="entrada" to="saida" end="5000.00" number="700"/>
+</routes>
