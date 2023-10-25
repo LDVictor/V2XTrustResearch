@@ -1,18 +1,10 @@
-from flask_restful import Resource, reqparse
+import sys
+import time
+sys.path.insert(0, '..') # Import the files where the modules are located
 
-elements = [
-    'vehicle_01',
-    'vehicle_02',
-    'vehicle_03',
-    'fake_vehicle',
-    'ran_01',
-    'ran_02'
-]
+from vehicle1 import Vehicle1
 
-class V2XTrust(Resource):
-    arguments = reqparse.RequestParser()
-    arguments.add_argument('msgContent')
-    arguments.add_argument('msgEncodeFormat')
-    arguments.add_argument('msgType')
-    arguments.add_argument('stdOrganization')
+vehicle1 = Vehicle1("127.0.0.1", 8001, 1)
+
+
 
