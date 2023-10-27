@@ -2,9 +2,9 @@ import sys
 import time
 sys.path.insert(0, '..') # Import the files where the modules are located
 
-from vehicle1 import Vehicle1
-from fakevehicle import FakeVehicle
-from ran import RAN
+from resources.vehicle1 import Vehicle1
+from resources.fakevehicle import FakeVehicle
+from resources.ran import RAN
 
 vehicle_1 = Vehicle1("127.0.0.1", 8001, 1)
 vehicle_2 = Vehicle1("127.0.0.1", 8002, 2)
