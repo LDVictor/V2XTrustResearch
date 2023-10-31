@@ -1,10 +1,10 @@
 from p2pnetwork.node import Node
 
-class Vehicle1(Node):
+class Vehicle(Node):
 
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
-        super(Vehicle1, self).__init__(host, port, id, callback, max_connections)
-        print("Vehicle 1: OBU iniciado")
+        super(Vehicle, self).__init__(host, port, id, callback, max_connections)
+        print("Vehicle: OBU iniciado")
 
     # estes métodos são chamados quando algo acontece na rede.
     # precisamos implementar o comportamento do nó de rede para criar a funcionalidade necessária.

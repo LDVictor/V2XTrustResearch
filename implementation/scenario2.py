@@ -1,9 +1,9 @@
 import sys
 import time
-sys.path.insert(0, '..') # Import the files where the modules are located
+sys.path.insert(0, '..')
 
-# Scenario 1
-## Desvio de Trafego Veicular
+# Scenario 2
+## Possibilidade de Colisao Conjunta
 
 from resources.vehicle import Vehicle
 from resources.fakevehicle import FakeVehicle
@@ -12,8 +12,6 @@ from resources.ran import RAN
 debug = False
 vehicle_1 = Vehicle("127.0.0.1", 8001, 1)
 vehicle_2 = Vehicle("127.0.0.1", 8002, 2)
-vehicle_3 = Vehicle("127.0.0.1", 8003, 3)
-vehicle_4 = Vehicle("127.0.0.1", 8004, 4)
 fake_vehicle = FakeVehicle("127.0.0.1", 8010, 10)
 enb_ran = RAN("127.0.0.1", 8100, 100)
 
@@ -31,8 +29,7 @@ fake_vehicle.connect_with_node('127.0.0.1', 8001)
 
 time.sleep(2)
 
-fake_vehicle.send_to_node(8001, "ADAS info - Highway X: Heavy Traffic")
-fake_vehicle.send_to_node(8001, "ADAS info - Highway Y: Empty Traffic")
+fake_vehicle.send_to_node(8001, "ADAS info - Highway X: Empty Traffic && Autobahn")
 
 time.sleep(2)
 
@@ -51,8 +48,7 @@ vehicle_1.connect_with_node("127.0.0.1", 8100)
 
 time.sleep(2)
 
-vehicle_1.send_to_node(8100, "ADAS info - Highway X: Heavy Traffic")
-vehicle_1.send_to_node(8100, "ADAS info - Highway Y: Empty Traffic")
+vehicle_1.send_to_node(8100, "ADAS info - Highway X: Empty Traffic && Autobahn")
 
 time.sleep(2)
 
@@ -62,28 +58,20 @@ vehicle_1.stop()
 time.sleep(5)
 
 vehicle_2.start()
-vehicle_3.start()
-vehicle_4.start()
 
 time.sleep(1)
 
 vehicle_2.debug = debug
-vehicle_3.debug = debug
-vehicle_4.debug = debug
 
 enb_ran.connect_with_node('127.0.0.1', 8002)
-enb_ran.connect_with_node('127.0.0.1', 8003)
-enb_ran.connect_with_node('127.0.0.1', 8004)
 
 time.sleep(2)
 
-enb_ran.send_to_nodes("ADAS info - Go through Highway Y")
+enb_ran.send_to_nodes("ADAS info - Go through Highway X with speed = 130 km/h")
 
 time.sleep(2)
 
 print("enb ran: saindo de rota")
 enb_ran.stop()
 
-print("Fim do Cenario 1")
-
-
+print("Fim do Cenario 2")
