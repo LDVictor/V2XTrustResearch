@@ -1,6 +1,10 @@
+from victor_aries_cloudagent.demo.runners.agent_container import AriesAgent
 from p2pnetwork.node import Node
 
 class Vehicle(Node):
+
+    pendingMessages = []
+    agent = AriesAgent('id-01', 8001, 8001)
 
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
         super(Vehicle, self).__init__(host, port, id, callback, max_connections)

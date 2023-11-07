@@ -2,6 +2,8 @@ from p2pnetwork.node import Node
 
 class FakeVehicle(Node):
 
+    #agent = AriesAgent()
+
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
         super(FakeVehicle, self).__init__(host, port, id, callback, max_connections)
         print("Fake Vehicle: OBU iniciado")

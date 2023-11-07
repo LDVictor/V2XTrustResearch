@@ -12,14 +12,14 @@ def v2xMenu():
 
     while (option != 0):
         if option == 1:
-            with open("scenario1.py") as f:
-                exec(f.read())
+            with open("scenario1.py") as f1:
+                exec(f1.read())
         elif option == 2:
-            with open("scenario2.py") as f:
-                exec(f.read())
+            with open("scenario2.py") as f2:
+                exec(f2.read())
         elif option == 3:
-            with open("scenario3.py") as f:
-                exec(f.read())
+            with open("scenario3.py") as f3:
+                exec(f3.read())
         else:
             option = int(input())
 
