@@ -15,7 +15,7 @@ vehicle_2 = Vehicle("127.0.0.1", 8002, 2)
 vehicle_3 = Vehicle("127.0.0.1", 8003, 3)
 vehicle_4 = Vehicle("127.0.0.1", 8004, 4)
 fake_vehicle = FakeVehicle("127.0.0.1", 8010, 10)
-enb_ran = RAN("127.0.0.1", 8100, 100)
+enb_ran = Vehicle("127.0.0.1", 8100, 100)
 
 time.sleep(3)
 
