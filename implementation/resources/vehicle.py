@@ -34,3 +34,8 @@ class Vehicle(Node):
         
     def node_request_to_stop(self):
         print("No eh solicitado a parar (" + self.id + "): ")
+
+    def verifica_credencial(self, node):
+        # A funcao deve verificar se a entidade que deseja se comunicar com esse veiculo possui uma credencial verificavel
+        print("verifica_credencial")
+        return True

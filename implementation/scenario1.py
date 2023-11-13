@@ -11,11 +11,7 @@ from resources.ran import RAN
 
 debug = False
 vehicle_1 = Vehicle("127.0.0.1", 8001, 1)
-vehicle_2 = Vehicle("127.0.0.1", 8002, 2)
-vehicle_3 = Vehicle("127.0.0.1", 8003, 3)
-vehicle_4 = Vehicle("127.0.0.1", 8004, 4)
 fake_vehicle = FakeVehicle("127.0.0.1", 8010, 10)
-enb_ran = Vehicle("127.0.0.1", 8100, 100)
 
 time.sleep(3)
 
@@ -32,7 +28,10 @@ fake_vehicle.connect_with_node('127.0.0.1', 8001)
 time.sleep(2)
 
 fake_vehicle.send_to_node(8001, "ADAS info - Highway X: Heavy Traffic")
+print("Mensagem (1) de 10: ADAS info - Highway X: Heavy Traffic")
 fake_vehicle.send_to_node(8001, "ADAS info - Highway Y: Empty Traffic")
+print("Mensagem (1) de 10: ADAS info - Highway Y: Empty Traffic")
+
 
 time.sleep(2)
 
@@ -41,18 +40,21 @@ fake_vehicle.stop()
 
 time.sleep(5)
 
+enb_ran = RAN("127.0.0.2", 8008, 8)
 enb_ran.start()
 
 time.sleep(1)
 
 enb_ran.debug = debug
 
-vehicle_1.connect_with_node("127.0.0.1", 8100)
+vehicle_1.connect_with_node("127.0.0.2", 8008)
 
 time.sleep(2)
 
-vehicle_1.send_to_node(8100, "ADAS info - Highway X: Heavy Traffic")
-vehicle_1.send_to_node(8100, "ADAS info - Highway Y: Empty Traffic")
+vehicle_1.send_to_node(8008, "ADAS info - Highway X: Heavy Traffic")
+print("Mensagem (8) de 1: ADAS info - Highway X: Heavy Traffic")
+vehicle_1.send_to_node(8008, "ADAS info - Highway Y: Empty Traffic")
+print("Mensagem (8) de 1: ADAS info - Highway Y: Empty Traffic")
 
 time.sleep(2)
 
@@ -61,6 +63,9 @@ vehicle_1.stop()
 
 time.sleep(5)
 
+vehicle_2 = Vehicle("127.0.0.1", 8002, 2)
+vehicle_3 = Vehicle("127.0.0.1", 8003, 3)
+vehicle_4 = Vehicle("127.0.0.1", 8004, 4)
 vehicle_2.start()
 vehicle_3.start()
 vehicle_4.start()
@@ -86,4 +91,4 @@ enb_ran.stop()
 
 print("Fim do Cenario 1")
 
-
+sys.exit()
