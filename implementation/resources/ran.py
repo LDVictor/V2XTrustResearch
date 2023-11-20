@@ -1,5 +1,6 @@
 import asyncio
 import datetime
+import json
 import logging
 import os
 import time
@@ -39,6 +40,11 @@ class RAN(Node, AriesAgent):
    logging.basicConfig(level=logging.WARNING)
    LOGGER = logging.getLogger(__name__)
 
+   connection_id = None
+   _connection_ready = None
+   cred_state = {}
+   cred_attrs = {}
+
 
    def __init__(self,
                 host,
@@ -48,8 +54,6 @@ class RAN(Node, AriesAgent):
                 max_connections=0):
        super(RAN, self).__init__(host, port, id, callback, max_connections)
        print("RAN iniciado")
-       self.main
-
 
    # funcoes do node
 
@@ -57,10 +61,16 @@ class RAN(Node, AriesAgent):
    # estes métodos são chamados quando algo acontece na rede.
    # precisamos implementar o comportamento do nó de rede para criar a funcionalidade necessária.
 
-   def verifica_credencial(self, node):
-        # A funcao deve verificar se a entidade que deseja se comunicar com esse veiculo possui uma credencial verificavel valida, verificando no VDR
-       print("verifica_credencial")
-       return True
+   def verifica_credencial(self, vc, vc_id):
+        if (vc != None and vc != ""):
+            # precisa verificar se a vc existe no VDR
+            try:
+                self.generate_proof_request_web_request(20, vc, vc_id, None)
+            except Exception:
+                return False
+            else:
+                return True
+        return False
 
    def outbound_node_connected(self, node):
        print("No de saida conectado (" + self.id + "): " + node.id)

@@ -12,8 +12,17 @@ def v2xMenu():
 
     while (option != 0):
         if option == 1:
-            with open("scenario1.py") as f1:
-                exec(f1.read())
+                print("Selecione uma opcao de cenario para ser simulado: ")
+                print("1 - Scenario 1")
+                print("2 - Solution 1")
+                choice = int(input())
+                if choice == 1:
+                    with open("scenario1.py") as f1:
+                        exec(f1.read())
+                else: 
+                    with open("solution1.py") as f1:
+                        exec(f1.read())
+
         elif option == 2:
             with open("scenario2.py") as f2:
                 exec(f2.read())
@@ -25,4 +34,3 @@ def v2xMenu():
 
 if __name__ == '__main__':
     v2xMenu()
-

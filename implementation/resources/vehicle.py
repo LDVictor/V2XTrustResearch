@@ -5,6 +5,7 @@ class Vehicle(Node):
 
     pendingMessages = []
     agent = AriesAgent('id-01', 8011, 8011)
+    vc = ""
 
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
         # verificar o erro dessa linha
@@ -35,7 +36,7 @@ class Vehicle(Node):
     def node_request_to_stop(self):
         print("No eh solicitado a parar (" + self.id + "): ")
 
-    def verifica_credencial(self, node):
-        # A funcao deve verificar se a entidade que deseja se comunicar com esse veiculo possui uma credencial verificavel
-        print("verifica_credencial")
-        return True
+    def verifica_credencial(self, vc):
+        if (vc != None and vc != ""):
+            return True
+        return False

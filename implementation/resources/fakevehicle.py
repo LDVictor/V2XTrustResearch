@@ -4,6 +4,8 @@ class FakeVehicle(Node):
 
     #agent = AriesAgent()
 
+    vc = "{'connection_id': None, 'cred_def_id': 10, 'comment': 'Offer on cred def id 10', 'auto_remove': False, 'credential_preview': {'@type': 'https://didcomm.org/issue-credential/2.0/credential-preview', 'attributes': [{'name': 'name', 'value': 'Vehicle'}, {'name': 'application', 'value': 'ADAS'}, {'name': 'datetime', 'value': datetime.date(2023, 11, 17)}, {'name': 'timestamp', 'value': '1700231011'}]}, 'trace': None}"
+
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
         super(FakeVehicle, self).__init__(host, port, id, callback, max_connections)
         print("Fake Vehicle: OBU iniciado")
