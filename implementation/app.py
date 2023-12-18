@@ -36,8 +36,16 @@ def v2xMenu():
                         exec(f2.read())
 
         elif option == 3:
-            with open("scenario3.py") as f3:
-                exec(f3.read())
+                print("Selecione uma opcao de cenario para ser simulado: ")
+                print("1 - Scenario 3")
+                print("2 - Solution 3")
+                choice = int(input())
+                if choice == 1:
+                    with open("scenario3.py") as f3:
+                        exec(f3.read())
+                else:
+                     with open("solution3.py") as f3:
+                          exec(f3.read())
         else:
             option = int(input())
 

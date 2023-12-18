@@ -4,6 +4,7 @@ class FakeVehicle(Node):
 
     #agent = AriesAgent()
 
+    pendingMessages = []
     vc = "{'connection_id': None, 'cred_def_id': 10, 'comment': 'Offer on cred def id 10', 'auto_remove': False, 'credential_preview': {'@type': 'https://didcomm.org/issue-credential/2.0/credential-preview', 'attributes': [{'name': 'name', 'value': 'Vehicle'}, {'name': 'application', 'value': 'ADAS'}, {'name': 'datetime', 'value': datetime.date(2023, 11, 17)}, {'name': 'timestamp', 'value': '1700231011'}]}, 'trace': None}"
 
     def __init__(self, host, port, id=None, callback=None, max_connections=0):
@@ -33,3 +34,6 @@ class FakeVehicle(Node):
         
     def node_request_to_stop(self):
         print("No eh solicitado a parar (" + self.id + "): ")
+
+    def verifica_credencial(self, vc):
+        return True
